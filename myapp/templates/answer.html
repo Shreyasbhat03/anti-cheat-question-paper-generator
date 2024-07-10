@@ -1,0 +1,42 @@
+<!-- templates/answer_key.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer Key</title>
+    <style>
+        body{
+        background-color:rgb(50, 160, 157);
+        }
+        .centered-div {
+            width: 50%;
+            margin: 0 auto; 
+            background-color:white;
+        }
+        .option{
+            width: 30%;
+            margin: 0 auto;
+            color:blue;
+            background-color:white;
+            allign-item:center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="centered-div">
+    <h1>Answer Key</h1>
+    {% for answer_key in answer_keys %}
+        <h2>Answer Key {{ forloop.counter }}</h2>
+        <ul>
+            {% for answer in answer_key %}
+                <li>
+                    <strong>Question {{ forloop.counter }}: </strong>  {{ answer.question_text }}<br>
+                    <strong>Answer:</strong>   {{ answer.answer|floatformat:2 }}<br><br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </div>
+</body>
+</html>

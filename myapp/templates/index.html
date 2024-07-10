@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Papers</title>
+    <style>
+        body{
+        background-color:rgb(50, 160, 157);
+        }
+        .centered-div {
+            width: 50%;
+            margin: 0 auto; 
+            background-color:white;
+        }
+        .option{
+            width: 30%;
+            margin: 0 auto;
+            color:blue;
+            background-color:white;
+            allign-item:center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="centered-div">
+    <h1>Question Papers</h1>
+    {% for question_paper, answer_key in zipped_data %}
+        <h2>Question Paper {{ forloop.counter }}</h2>
+        <ul>
+            {% for question in question_paper %}
+                <li>
+                    <strong>Question {{ forloop.counter }}:</strong>   {{ question.question_text }}<br>
+                    <strong>Speed: </strong>   {{ question.speed|floatformat:2}}<br>
+                    <strong>Duration: </strong>   {{ question.duration|floatformat:2 }}<br><br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </div>
+    <div class="option">
+    <a href="{% url 'add_question' %}">Add New Question</a>
+    </div>
+</body>
+</html>

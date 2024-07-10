@@ -1,0 +1,54 @@
+<!-- add_question.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Question</title>
+    <style>
+        body{
+        background-color:rgb(50, 160, 157);
+        }
+        div{
+            height: 100%;
+    margin-top: 100px;
+    display:flex;
+    allign-item:center;
+    justify-content:center;
+        }
+        .centered-div {
+          
+            display: flex;
+            allign-item:center;
+    justify-content:center;
+                height: 250px; 
+                width: 700px;
+                background-color:white;
+                outline:2px solid black;
+        
+            
+        }
+        .option{
+            width: 30%;
+            margin: 0 auto;
+            color:blue;
+            background-color:white;
+            allign-item:center;
+        }
+
+    </style>
+    
+</head>
+<body><div>
+    <div class="centered-div">
+    <h1>Add Question</h1>
+    <br><br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</div>
+</body>
+</html>
